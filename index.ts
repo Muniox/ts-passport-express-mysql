@@ -3,6 +3,9 @@ dotenv.config();
 import express, {Express} from "express";
 const app: Express = express();
 
+app.use(express.json());
+app.use(express.static('client'));
+
 //zapytanie test
 import pool from "./utility/db";
 (async () => {
