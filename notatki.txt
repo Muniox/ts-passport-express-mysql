@@ -1,0 +1,16 @@
+Uwierzytelnianie to weryfikacja tożsamości przypisywanej danej osobie,
+na przykład poprzez system loginu i hasła, odcisk palca czy biometrię behawioralną.
+
+Autoryzacja to z kolei zagwarantowanie użytkownikowi,
+programowi lub procesowi odpowiednich uprawnień do korzystania z danych zasobów.
+
+Passport.js(Uwierzytelnienie) odpowiada za dostęp, czyli Uwierzytelnienie
+
+express-session(Autoryzacja) odpowiada za utworzenie sesji użytkownika i nadanie mu ciasteczka.
+Dzięki któremu zachowa dostęp do zasobów po odświeżeniu strony.
+
+session-store zachowuje dane sesji w bazie danych, aby móc sprawdzić
+
+
+Czemu ts-node nie może znaleźć typów?:
+https://github.com/TypeStrong/ts-node#missing-types
