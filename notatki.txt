@@ -17,3 +17,17 @@ https://github.com/TypeStrong/ts-node#missing-types
 
 Nieoficjalna, bardzo dobra dokumentacja passporta:
 https://github.com/jwalton/passport-api-docs
+
+wysyłane z clienta:
+{
+    "username": "Paweł",
+    "password": "ok"
+}
+
+PORT=3000
+
+DBHOST='127.0.0.1'
+DBPORT=3306
+DBNAME="auth"
+DBPASSWORD="<3database^_^"
+DBUSER="root"

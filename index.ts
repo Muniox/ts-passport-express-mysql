@@ -1,4 +1,4 @@
-import * as dotenv from "dotenv";
+import dotenv from "dotenv";
 dotenv.config();
 import express, {Express} from "express";
 import passport from "passport";
@@ -7,6 +7,7 @@ import strategy from "./utility/passport-local"
 import {sessionStore} from "./utility/db"
 import UserRecord from "./model/user.record"
 const app: Express = express();
+
 
 /* @TODO Clean this mess! */
 
