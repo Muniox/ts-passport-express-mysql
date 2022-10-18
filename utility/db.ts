@@ -25,7 +25,7 @@ const sessionStore = new MySQLStore(
         //         expires: 'expires',
         //         data: 'data',
         //     }
-    }
+        // }
 }, pool);
 
 export {
