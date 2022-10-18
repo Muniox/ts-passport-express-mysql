@@ -13,7 +13,20 @@ const pool = createPool({
     decimalNumbers: true,
 });
 
-const sessionStore = new MySQLStore({}, pool);
+const sessionStore = new MySQLStore(
+    {
+
+        // createDatabaseTable: false,
+        // schema: {
+        //     tableName: 'sessions',
+        //     dataWithOwnColumns: [ 'user' ],
+        //     columnNames: {
+        //         session_id: 'session_id',
+        //         expires: 'expires',
+        //         data: 'data',
+        //     }
+    }
+}, pool);
 
 export {
     pool,

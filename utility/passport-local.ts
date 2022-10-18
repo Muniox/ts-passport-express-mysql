@@ -8,15 +8,16 @@ const strategy = new LocalStrategy(
         try {
             const [user] = await UserRecord.getAllUserData(username);
 
-
+            /* @TODO messages are stack in database*/
             if (!user) {
-                return done(null,false, {message: 'There is no User with that name'});
+                return done(null,false, {message: 'Wrong user name'});
             }
 
+            /* @TODO set bcrypt compare */
             if (password !== user.password) {
                 return done(null, false, {message: 'Password incorrect' });
             }
-            // if (!(await compare(password, user[0].password))) {
+            // if (!(await compare(password, user.password))) {
             //     return done(null, false);
             // }
 

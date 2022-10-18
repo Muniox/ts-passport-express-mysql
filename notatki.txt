@@ -14,3 +14,6 @@ session-store zachowuje dane sesji w bazie danych, aby móc sprawdzić
 
 Czemu ts-node nie może znaleźć typów?:
 https://github.com/TypeStrong/ts-node#missing-types
+
+Nieoficjalna, bardzo dobra dokumentacja passporta:
+https://github.com/jwalton/passport-api-docs

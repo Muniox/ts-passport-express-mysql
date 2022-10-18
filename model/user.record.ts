@@ -26,12 +26,11 @@ class UserRecord {
         }))[0];
     }
 
-    static  getUserId = async (username: string) => {
-        console.log(username);
-        const [id] = (await pool.execute<IUser[]>('SELECT `userId` from `users` WHERE `userName` = :username',{
-            username
+    static  getUserById = async (id: string) => {
+        const [user] = (await pool.execute<IUser[]>('SELECT * from `users` WHERE `userId` = :id',{
+            id
         }))[0];
-        return id;
+        return user;
     }
 }
 
