@@ -9,7 +9,7 @@ const strategy = new LocalStrategy(
             const [user] = await UserRecord.getAllUserData(username);
 
             /* @TODO messages are stacking in database*/
-            if (!user || user.name !== username) {
+            if (!user || username !== user.userName) {
                 return done(null,false, {message: 'Wrong user name'});
             }
 
