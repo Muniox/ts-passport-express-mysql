@@ -10,8 +10,10 @@ const app: Express = express();
 
 
 /* @TODO Clean this mess! */
+app.use(express.static('client'));
 
-app.set('trust proxy', 1) // trust first proxy, if you use http
+
+// app.set('trust proxy', 1) // trust first proxy, if you use https
 app.use(session({
     secret: 'keyboard cat', //@TODO set const variable to .env
     store: sessionStore,
@@ -36,17 +38,36 @@ passport.deserializeUser(async (id: string, done) => {
     done(null, await UserRecord.getUserById(id))
 });
 
+app.use('*', (req, res, next) => {
+    const path = req.baseUrl
+    console.log(path)
+    if (path !== '/login') {
+        if (req.isAuthenticated()) {
+            next()
+        }
+        else if (!req.isAuthenticated()) {
+            res.redirect('/login')
+        }
+    } else {
+        next()
+    }
+});
+
+
 /* @TODO Create Router for routes */
 app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }),
     (req, res) => {
         res.redirect('/')
     }
     )
-    .get('/', passport.authenticate('local', { failureRedirect: '/login', failureMessage: true }), (req, res) => {
+    .get('/', (req, res) => {
         res.send('Strona główna');
     })
     .get('/login', (req, res) => {
-        res.send('strona logowania')
+        res.sendFile(__dirname + '/client/login.html')
+    })
+    .get('/podstrona', (req, res) => {
+        res.send('to jest podstrona');
     })
 
 app.listen(Number(process.env.PORT), () => {

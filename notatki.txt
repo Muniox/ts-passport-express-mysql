@@ -31,3 +31,5 @@ DBPORT=3306
 DBNAME="auth"
 DBPASSWORD="<3database^_^"
 DBUSER="root"
+
+node 18.7.0

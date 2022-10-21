@@ -8,8 +8,8 @@ const strategy = new LocalStrategy(
         try {
             const [user] = await UserRecord.getAllUserData(username);
 
-            /* @TODO messages are stack in database*/
-            if (!user) {
+            /* @TODO messages are stacking in database*/
+            if (!user || user.name !== username) {
                 return done(null,false, {message: 'Wrong user name'});
             }
 
